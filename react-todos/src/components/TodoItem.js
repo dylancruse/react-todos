@@ -25,19 +25,6 @@ class TodoItem extends React.Component {
         }
     }
 
-    getButtonStyle = () => {
-        return {
-            background: 'var(--black)',
-            color: 'var(--white)',
-            border: '1px solid var(--black)',
-            padding: '5px',
-            borderRadius: '10%',
-            marginLeft: 'auto',
-            fontSize: '.8em',
-            cursor: 'pointer'
-        }
-    }
-
     render() {
         const {title, id} = this.props.todo;
         return (
@@ -45,12 +32,14 @@ class TodoItem extends React.Component {
                 <input 
                     type="checkbox" 
                     onChange={this.props.toggleComplete.bind(this, id)} 
-                    style={{marginTop: '5px'}} 
+                    style={{marginTop: '5px', cursor: 'pointer'}} 
                 />
                 <p style={this.getPStyle()}>{title}</p>
-                <button onClick={this.props.deleteTodo.bind(this, id)} 
-                    style={this.getButtonStyle()}>
-                        Delete
+                <button 
+                    onClick={this.props.deleteTodo.bind(this, id)} 
+                    className="delete-btn"
+                >
+                    Delete
                 </button>
             </div> 
         );

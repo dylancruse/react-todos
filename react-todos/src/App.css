@@ -21,6 +21,40 @@ a {
     text-decoration: none;
 }
 
+.delete-btn {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    padding: 5px;
+    border-radius: 10%;
+    margin-left: auto;
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #494949;
+}
+
+.add-btn {
+    display: inline-block;
+    flex: 1;
+    background-color: var(--blue);
+    color: var(--white);
+    border-style: outset;
+    border-color: var(--black);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 5px;
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: rgb(77, 157, 207);
+}
+
 #App-wrapper {
     width: 75%;
     margin: 0 auto;
