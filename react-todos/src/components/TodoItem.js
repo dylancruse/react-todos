@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 class TodoItem extends React.Component {
     getDivStyle = () => {
         return {
-            background: 'var(--green)',
+            background: 'var(--dark-blue)',
             padding: '10px',
-            borderBottom: '1px solid var(--white)',
+            borderColor: 'var(--black)',
+            borderStyle: 'solid',
+            borderWidth: '0px 1px 1px 1px',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'start',
@@ -16,9 +18,23 @@ class TodoItem extends React.Component {
 
     getPStyle = () => {
         return {
-            color: 'var(--black)',
+            color: 'var(--white)',
             marginLeft: '10px',
+            marginTop: '3px',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none',
+        }
+    }
+
+    getButtonStyle = () => {
+        return {
+            background: 'var(--black)',
+            color: 'var(--white)',
+            border: '1px solid var(--black)',
+            padding: '5px',
+            borderRadius: '10%',
+            marginLeft: 'auto',
+            fontSize: '.8em',
+            cursor: 'pointer'
         }
     }
 
@@ -29,9 +45,13 @@ class TodoItem extends React.Component {
                 <input 
                     type="checkbox" 
                     onChange={this.props.toggleComplete.bind(this, id)} 
-                    style={{marginTop: '3px'}} 
+                    style={{marginTop: '5px'}} 
                 />
                 <p style={this.getPStyle()}>{title}</p>
+                <button onClick={this.props.deleteTodo.bind(this, id)} 
+                    style={this.getButtonStyle()}>
+                        Delete
+                </button>
             </div> 
         );
     }
