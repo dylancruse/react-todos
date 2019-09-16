@@ -17,10 +17,6 @@ body {
     background-color: var(--light-blue);
 }
 
-a {
-    text-decoration: none;
-}
-
 .delete-btn {
     background: var(--black);
     color: var(--white);
