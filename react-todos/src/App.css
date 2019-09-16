@@ -1,3 +1,12 @@
+:root {
+    --white: #F7F9FB;
+    --black: #2d352c;
+    --blue: #5085A5;
+    --dark-blue: #31708E;
+    --light-blue: #8FC1E3;
+
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -6,8 +15,14 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--light-blue);
 }
 
 a {
     text-decoration: none;
+}
+
+#App-wrapper {
+    width: 75%;
+    margin: 0 auto;
 }
