@@ -1,3 +1,11 @@
+:root {
+    --white: #f2f2f2;
+    --black: #182628;
+    --light-green: #65CCB8;
+    --green: #57BA98;
+    --dark-green: #3B945E;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;
