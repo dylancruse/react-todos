@@ -28,6 +28,7 @@ class AddTodo extends React.Component {
                     placeholder="Add it to the list..."
                     value={this.state.title}
                     onChange={this.textInputHandler}
+                    required
                 />
                 <input
                     type="submit"
