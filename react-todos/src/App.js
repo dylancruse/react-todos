@@ -1,23 +1,25 @@
 import React from 'react';
-import Todos from './components/Todos';
 import Header from './layout/Header';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 import './App.css';
+import uuid from 'uuid';
 
 class App extends React.Component {
     state = {
         todos: [
             {
-                id: 1,
+                id: uuid.v4(),
                 title: 'Build todo app',
                 completed: false
             },
             {
-                id: 2,
+                id: uuid.v4(),
                 title: 'Upload it to portfolio',
                 completed: false
             },
             {
-                id: 3,
+                id: uuid.v4(),
                 title: 'Get a job',
                 completed: false
             }
@@ -50,6 +52,21 @@ class App extends React.Component {
         )
     }
 
+    //Create new todo
+    formSubmitHandler = (title) => {
+        const newTodo = {
+            id: uuid.v4(),
+            title,
+            completed: false 
+        }
+
+        this.setState(
+            {
+                todos: [...this.state.todos, newTodo]
+            }
+        );
+    }
+
     render() {
         return (
             <div id="App-wrapper">
@@ -57,6 +74,7 @@ class App extends React.Component {
                     <Header />
                     <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} 
                     deleteTodo={this.deleteTodo} />
+                    <AddTodo formSubmitHandler={this.formSubmitHandler}/>
                 </div>
             </div>
         );
