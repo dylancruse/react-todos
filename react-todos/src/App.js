@@ -1,5 +1,6 @@
 import React from 'react';
 import Todos from './components/Todos';
+import Header from './layout/Header';
 import './App.css';
 
 class App extends React.Component {
@@ -53,6 +54,7 @@ class App extends React.Component {
         return (
             <div id="App-wrapper">
                 <div className="App">
+                    <Header />
                     <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} 
                     deleteTodo={this.deleteTodo} />
                 </div>
