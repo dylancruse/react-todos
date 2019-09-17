@@ -5,27 +5,23 @@ import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import About from './pages/About';
 import './App.css';
+
 import uuid from 'uuid';
+import axios from 'axios';
 
 class App extends React.Component {
     state = {
-        todos: [
-            {
-                id: uuid.v4(),
-                title: 'Build todo app',
-                completed: false
-            },
-            {
-                id: uuid.v4(),
-                title: 'Upload it to portfolio',
-                completed: false
-            },
-            {
-                id: uuid.v4(),
-                title: 'Get a job',
-                completed: false
-            }
-        ]
+        todos: []
+    }
+
+    componentDidMount() {
+        axios.get('https://jsonplaceholder.typicode.com/users/1/todos?_limit=5')
+            .then(res => this.setState(
+                    {       
+                        todos: res.data
+                    }
+                )
+            )
     }
 
     toggleComplete = (id) => {
@@ -44,29 +40,38 @@ class App extends React.Component {
     }
 
     deleteTodo = (id) => {
-        this.setState(
-            {
-                todos: [...this.state.todos.filter(
-                    todo => todo.id !== id
-                    )
-                ]
-            }
-        )
+        axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+            .then(res => this.setState(
+                {
+                    todos: [...this.state.todos.filter(
+                        todo => todo.id !== id
+                        )
+                    ]
+                }
+            ))
     }
 
     //Create new todo
     formSubmitHandler = (title) => {
-        const newTodo = {
-            id: uuid.v4(),
-            title,
-            completed: false 
-        }
-
-        this.setState(
-            {
-                todos: [...this.state.todos, newTodo]
+        axios.post('https://jsonplaceholder.typicode.com/todos', {
+                key: uuid.v4(),
+                title,
+                completed: false
             }
-        );
+        )
+        .then(res => {
+                const newTodo = {
+                    id: uuid.v4(),
+                    title: res.data.title,
+                    completed: res.data.completed
+                }
+                this.setState(
+                    {
+                        todos: [...this.state.todos, newTodo]
+                    }
+                )
+            }
+        )
     }
 
     render() {

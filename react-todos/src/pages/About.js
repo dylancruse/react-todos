@@ -14,9 +14,10 @@ function About() {
 const aboutDivStyle = {
     backgroundColor: 'var(--dark-blue)',
     color: 'var(--white)',
-    padding: '10px',
     textAlign: 'center',
-    lineHeight: '1.4'
+    lineHeight: '1.4',
+    padding: '10px',
+    border: '1px solid var(--black)'
 }
 
 export default About;
