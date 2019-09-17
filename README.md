@@ -1,3 +1,5 @@
 # react-todos
 
-Simple todo app built using React
+A simple to-do app built using the React framework.
+
+View in GitHub: https://dylancruse.github.io/react-todos/index.html
