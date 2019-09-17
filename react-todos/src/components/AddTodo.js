@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddTodo extends React.Component {
     
@@ -44,6 +45,11 @@ const formStyle = {
     display: 'flex', 
     border: '1px solid var(--black)',
     borderTop: 'none'
+}
+
+//PropTypes
+AddTodo.propTypes = {
+    formSubmitHandler: PropTypes.func.isRequired
 }
 
 export default AddTodo;
