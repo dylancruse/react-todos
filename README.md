@@ -1,4 +1,4 @@
-# react-todos
+# React To-Do List ✔️
 
 Simple to-do app built using React
 
